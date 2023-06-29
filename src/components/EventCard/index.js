@@ -42,6 +42,7 @@ EventCard.propTypes = {
     label: PropTypes.string,
 };
 
+// Ajout de label,title,imageSrc
 EventCard.defaultProps = {
     label: "",
     title: "",
