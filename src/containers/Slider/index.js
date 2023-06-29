@@ -10,7 +10,7 @@ const Slider = () => {
     const byDateDesc = data?.focus.sort((evtA, evtB) =>
         new Date(evtA.date) > new Date(evtB.date) ? -1 : 1
     );
-    // Modification de la fonction next card avec ajout du -1 a  byDateDesc.length pour prendre en compte l index qui commence a 0
+    // Modification de la fonction next card avec ajout du -1 a  byDateDesc.length pour prendre en compte l index qui commence à 0
     const nextCard = () => {
         setTimeout(
             () => setIndex(index < byDateDesc.length - 1 ? index + 1 : 0),
