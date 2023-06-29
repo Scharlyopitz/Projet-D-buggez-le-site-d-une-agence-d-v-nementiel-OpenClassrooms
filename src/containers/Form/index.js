@@ -40,7 +40,7 @@ const Form = ({ onSuccess, onError }) => {
                         titleEmpty
                     />
                     <Field placeholder="" label="Email" />
-                    {/* ajout de fonction anomyme au click avec appel de onSucces() pour ouvrir la modal */}
+                    {/* Ajout de fonction anomyme au click avec appel de onSucces() pour ouvrir la modal */}
                     <Button
                         type={BUTTON_TYPES.SUBMIT}
                         disabled={sending}
