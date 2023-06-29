@@ -13,6 +13,7 @@ import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
+    // Changement de last en data puis ajout d'une fonction de tri et creation de la const last
     const { data } = useData();
     const last =
         data &&
