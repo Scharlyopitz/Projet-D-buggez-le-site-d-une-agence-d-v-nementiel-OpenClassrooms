@@ -8,8 +8,9 @@ const Slider = () => {
     const { data } = useData();
     const [index, setIndex] = useState(0);
     const byDateDesc = data?.focus.sort((evtA, evtB) =>
-        new Date(evtA.date) < new Date(evtB.date) ? -1 : 1
+        new Date(evtA.date) > new Date(evtB.date) ? -1 : 1
     );
+    // Modification de la fonction next card avec ajout du -1 a  byDateDesc.length pour prendre en compte l index qui commence a 0
     const nextCard = () => {
         setTimeout(
             () => setIndex(index < byDateDesc.length - 1 ? index + 1 : 0),
@@ -23,9 +24,8 @@ const Slider = () => {
     return (
         <div className="SlideCardList">
             {byDateDesc?.map((event, idx) => (
-                <>
+                <div key={event.title}>
                     <div
-                        key={event.title}
                         className={`SlideCard SlideCard--${
                             index === idx ? "display" : "hide"
                         }`}
@@ -41,17 +41,19 @@ const Slider = () => {
                     </div>
                     <div className="SlideCard__paginationContainer">
                         <div className="SlideCard__pagination">
+                            {/* ajout de readOnly pour eviter les bugs et changement de la key sur les bullets points */}
                             {byDateDesc.map((_, radioIdx) => (
                                 <input
-                                    key={`${event.id}`}
+                                    key={`${radioIdx + 1}`}
                                     type="radio"
                                     name="radio-button"
                                     checked={index === radioIdx}
+                                    readOnly
                                 />
                             ))}
                         </div>
                     </div>
-                </>
+                </div>
             ))}
         </div>
     );
